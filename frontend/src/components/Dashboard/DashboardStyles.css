@@ -1,0 +1,22 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.a{
+    font-size: 50%;
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    text-align: center;
+    margin-top: 5%;
+ 
+}
+
+.d{
+    font-size: 350%;
+}
+.q{
+    background-color: #ffffff;
+}
+
+
+

@@ -1,0 +1,21 @@
+.rr {
+  text-align: center;
+  color: rgb(20, 131, 63);
+}
+
+.g {
+  color: black !important;
+  font-size: 225%;
+  text-align: center;
+}
+.mb-0{
+  margin-bottom: 0;
+}
+.card{
+  width: 18rem;
+  border: 2px solid black;
+  margin-left: 2rem;
+}
+.justufy{
+  text-align: justify;
+}
