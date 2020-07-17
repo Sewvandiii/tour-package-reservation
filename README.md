@@ -26,6 +26,8 @@ MongoDB Atlas<br/>
 Connection url: 
 mongodb+srv://root:bunny@cluster0alh36.gcp.mongodb.net/Tourism?retryWrites=true&w=majority 
 
+## Configurations
+
 ### step 1
 Open terminal in VS Code in Backend Directory 
 
