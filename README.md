@@ -2,6 +2,8 @@
 
 ## WORLD WIDE EXPLORERS
 
+![MIT](https://img.shields.io/badge/Licence-MIT-orange)
+
 ## REST API Technology
 JSON Based Web Services<br/>  
 Express<br/>  
