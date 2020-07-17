@@ -1,4 +1,4 @@
-# MERN---Tour-Package-Reservation
+# Tour Package Reservation
 
 ## WORLD WIDE EXPLORERS
 
