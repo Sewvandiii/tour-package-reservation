@@ -2,7 +2,11 @@
 
 ## WORLD WIDE EXPLORERS
 
-![MIT](https://img.shields.io/badge/Licence-MIT-orange)
+## Languages
+
+![JavaScript](https://img.shields.io/badge/Language-JavaScript-orange)
+![HTML](https://img.shields.io/badge/Language-HTML-green)
+![CSS](https://img.shields.io/badge/Language-CSS-blue)
 
 ## REST API Technology
 JSON Based Web Services<br/>  
@@ -53,4 +57,4 @@ Admin Credentials are given in CREDENTIALS.txt
 ![test5](https://user-images.githubusercontent.com/61576355/84638778-0ddd4380-af15-11ea-87d3-4474f88f0d34.gif)
 
 ## License
-[MIT](https://opensource.org/licenses/mit-license.html)
+[MIT](https://img.shields.io/github/license/Sewvandiii/MERN---Tour-Package-Reservation?color=black)
