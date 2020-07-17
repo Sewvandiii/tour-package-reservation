@@ -57,4 +57,4 @@ Admin Credentials are given in CREDENTIALS.txt
 ![test5](https://user-images.githubusercontent.com/61576355/84638778-0ddd4380-af15-11ea-87d3-4474f88f0d34.gif)
 
 ## License
-[MIT](https://img.shields.io/github/license/Sewvandiii/MERN---Tour-Package-Reservation?color=black)
+![MIT](https://img.shields.io/github/license/Sewvandiii/MERN---Tour-Package-Reservation?color=black)
