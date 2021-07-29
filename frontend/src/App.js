@@ -9,7 +9,7 @@ function App() {
 
       <div className="container text-center">
         <br></br>
-        <p> Made with ♥️ by World Wide Explorers</p>
+        <p> Made with ♥️ by World Wide Explorers!</p>
         <br></br>
       </div>
     </div>
