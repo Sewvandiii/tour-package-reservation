@@ -26,23 +26,37 @@ class Map extends SchemaType {
       return val;
     }
 
+    const path = this.path;
+
     if (init) {
-      const map = new MongooseMap({}, this.path, doc, this.$__schemaType);
+      const map = new MongooseMap({}, path, doc, this.$__schemaType);
 
       if (val instanceof global.Map) {
         for (const key of val.keys()) {
-          map.$init(key, map.$__schemaType.cast(val.get(key), doc, true));
+          let _val = val.get(key);
+          if (_val == null) {
+            _val = map.$__schemaType._castNullish(_val);
+          } else {
+            _val = map.$__schemaType.cast(_val, doc, true, null, { path: path + '.' + key });
+          }
+          map.$init(key, _val);
         }
       } else {
         for (const key of Object.keys(val)) {
-          map.$init(key, map.$__schemaType.cast(val[key], doc, true));
+          let _val = val[key];
+          if (_val == null) {
+            _val = map.$__schemaType._castNullish(_val);
+          } else {
+            _val = map.$__schemaType.cast(_val, doc, true, null, { path: path + '.' + key });
+          }
+          map.$init(key, _val);
         }
       }
 
       return map;
     }
 
-    return new MongooseMap(val, this.path, doc, this.$__schemaType);
+    return new MongooseMap(val, path, doc, this.$__schemaType);
   }
 
   clone() {

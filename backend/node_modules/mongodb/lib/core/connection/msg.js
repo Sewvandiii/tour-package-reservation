@@ -31,6 +31,7 @@ const Buffer = require('safe-buffer').Buffer;
 const opcodes = require('../wireprotocol/shared').opcodes;
 const databaseNamespace = require('../wireprotocol/shared').databaseNamespace;
 const ReadPreference = require('../topologies/read_preference');
+const MongoError = require('../../core/error').MongoError;
 
 // Incrementing request id
 let _requestId = 0;
@@ -138,7 +139,12 @@ Msg.getRequestId = function() {
 
 class BinMsg {
   constructor(bson, message, msgHeader, msgBody, opts) {
-    opts = opts || { promoteLongs: true, promoteValues: true, promoteBuffers: false };
+    opts = opts || {
+      promoteLongs: true,
+      promoteValues: true,
+      promoteBuffers: false,
+      bsonRegExp: false
+    };
     this.parsed = false;
     this.raw = message;
     this.data = msgBody;
@@ -160,6 +166,7 @@ class BinMsg {
     this.promoteLongs = typeof opts.promoteLongs === 'boolean' ? opts.promoteLongs : true;
     this.promoteValues = typeof opts.promoteValues === 'boolean' ? opts.promoteValues : true;
     this.promoteBuffers = typeof opts.promoteBuffers === 'boolean' ? opts.promoteBuffers : false;
+    this.bsonRegExp = typeof opts.bsonRegExp === 'boolean' ? opts.bsonRegExp : false;
 
     this.documents = [];
   }
@@ -185,18 +192,22 @@ class BinMsg {
       typeof options.promoteBuffers === 'boolean'
         ? options.promoteBuffers
         : this.opts.promoteBuffers;
+    const bsonRegExp =
+      typeof options.bsonRegExp === 'boolean' ? options.bsonRegExp : this.opts.bsonRegExp;
 
     // Set up the options
     const _options = {
       promoteLongs: promoteLongs,
       promoteValues: promoteValues,
-      promoteBuffers: promoteBuffers
+      promoteBuffers: promoteBuffers,
+      bsonRegExp: bsonRegExp
     };
 
     while (this.index < this.data.length) {
       const payloadType = this.data.readUInt8(this.index++);
       if (payloadType === 1) {
-        console.error('TYPE 1');
+        // It was decided that no driver makes use of payload type 1
+        throw new MongoError('OP_MSG Payload Type 1 detected unsupported protocol');
       } else if (payloadType === 0) {
         const bsonSize = this.data.readUInt32LE(this.index);
         const bin = this.data.slice(this.index, this.index + bsonSize);
