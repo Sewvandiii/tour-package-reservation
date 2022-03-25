@@ -52,7 +52,6 @@ Open http://localhost:3000 to view it in the browser.
 ## ⚠ Important
 
 Admin has the only priority to add, update and delete tour packages<br/>
-Admin Credentials are given in CREDENTIALS.txt
 
 ## Quick Guide
 
